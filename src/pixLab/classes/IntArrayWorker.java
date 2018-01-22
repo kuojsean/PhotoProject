@@ -63,6 +63,16 @@ public class IntArrayWorker
     }
   }
   
+  public int getColTotal(int colNumber)
+  {
+	  int colTotal = 0;
+	  for (int row = 0; row < matrix.length; row++)
+	  {
+		  colTotal += matrix[row][colNumber];
+	  }
+	  return colTotal;
+  }
+  
   /**
    * print the values in the array in rows and columns
    */
