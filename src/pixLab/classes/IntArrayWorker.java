@@ -63,6 +63,9 @@ public class IntArrayWorker
     }
   }
   
+  /**
+   * Method to get the total amount in a given column.
+   */
   public int getColTotal(int colNumber)
   {
 	  int colTotal = 0;
