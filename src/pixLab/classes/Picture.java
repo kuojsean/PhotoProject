@@ -102,17 +102,14 @@ public class Picture extends SimplePicture
   public void glitchFilter()
   {
 	  Pixel[][] pixels = this.getPixels2D();
-	  Pixel shiftRightPixels = null;
-	  Pixel shiftLeftPixels = null;
+	  Pixel[][] shiftedPixels = this.getPixels2D();
 	  int width = pixels[0].length;
-	  int shift = width/5;
+	  int shift = (int)(width * 0.2);
 	    for (int row = 0; row < pixels.length; row++)
 	    {
 	      for (int col = 0; col < shift; col++)
 	      {
-	          shiftLeftPixels = pixels[row][col];
-	          shiftRightPixels = pixels[row][shift - 1 - col];
-	          shiftRightPixels.setColor(shiftLeftPixels.getColor());
+	    	  	pixels[row][col] = shiftedPixels[row][width-(shift-col)];
 	      }
 	    }
   }
