@@ -103,30 +103,40 @@ public class Picture extends SimplePicture
   {
 	  Pixel[][] pixels = this.getPixels2D();
 //	  Pixel[][] shiftedPixels = this.getPixels2D();
-	  Pixel leftPixel = null;
-	  Pixel rightPixel = null;
-	  Pixel midPixel = null;
+//	  Pixel leftPixel = null;
+//	  Pixel rightPixel = null;
+//	  Pixel midPixel = null;
 	  int width = pixels[0].length;
-	  int shift = (int)(pixels[0].length * 0.2);
+	  int shift = (int)(pixels[0].length * .33);
 	  
 	    for (int row = 0; row < pixels.length; row++)
 	    {
-	      for (int col = 0; col < pixels[0].length; col++)
-	      {
-//	    	  	pixels[row][col] = shiftedPixels[row][width-(shift-col)];
-	    	  	leftPixel = pixels[row][col];
-	    	  	rightPixel = pixels [row][(width - shift + col) % width];
-	    	  	midPixel = pixels [row][(col + shift) % width];
-	    	  	
-	    	  	Color leftColor = leftPixel.getColor();
-	    	  	Color rightColor = rightPixel.getColor();
-	    	  	Color midColor = midPixel.getColor();
-	    	  	
-	    	  	leftPixel.setColor(rightColor);
-	    	  	rightPixel.setColor(midColor);
-	    	  	midPixel.setColor(leftColor);
-	    	  	
-	      }
+	    		Color [] currentColors = new Color[pixels[0].length];
+	    		
+	    		for (int col = 0; col < pixels[row].length; col++)
+	    		{
+	    			currentColors[col] = pixels[row][col].getColor();
+	    		}
+	    		for (int col = 0; col < pixels[0].length; col++)
+	    		{
+	    			pixels[row][col].setColor(currentColors[(col+ shift) % width]);
+	    		}
+//	      for (int col = 0; col < pixels[0].length; col++)
+//	      {
+////	    	  	pixels[row][col] = shiftedPixels[row][width-(shift-col)];
+//	    	  	leftPixel = pixels[row][col];
+//	    	  	rightPixel = pixels [row][(width - shift + col) % width];
+//	    	  	midPixel = pixels [row][(col + shift) % width];
+//	    	  	
+//	    	  	Color leftColor = leftPixel.getColor();
+//	    	  	Color rightColor = rightPixel.getColor();
+//	    	  	Color midColor = midPixel.getColor();
+//	    	  	
+//	    	  	leftPixel.setColor(rightColor);
+//	    	  	rightPixel.setColor(midColor);
+//	    	  	midPixel.setColor(leftColor);
+//	    	  	
+//	      }
 	    }
   }
   
