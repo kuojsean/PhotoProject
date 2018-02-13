@@ -86,6 +86,11 @@ public class Picture extends SimplePicture
     
   }
   
+  public void classFilter()
+  {
+//	  @Override addMessage();
+  }
+  
   /** Method to set the blue to 0 */
   public void zeroBlue()
   {

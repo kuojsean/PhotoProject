@@ -10,6 +10,15 @@ package pixLab.classes;
 public class PictureTester
 {
   /** Method to test zeroBlue */
+	
+public static void testClassFilter()
+{
+	Picture beach = new Picture("beach.jpg");
+	beach.explore();
+	beach.classFilter();
+	beach.explore();
+}
+	
   public static void testZeroBlue()
   {
     Picture beach = new Picture("beach.jpg");
@@ -67,7 +76,8 @@ public class PictureTester
     // uncomment a call here to run a test
     // and comment out the ones you don't want
     // to run
-	  testGlitch();
+	  testClassFilter();
+//	  testGlitch();
 //    testZeroBlue();
     //testKeepOnlyBlue();
     //testKeepOnlyRed();
