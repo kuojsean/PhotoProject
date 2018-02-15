@@ -89,6 +89,7 @@ public class Picture extends SimplePicture
   public void classFilter()
   {
 //	  @Override addMessage();
+//	 @Overload addMessage(String message, int xPos, int yPos)
   }
   
   /** Method to set the blue to 0 */
@@ -143,6 +144,12 @@ public class Picture extends SimplePicture
 //	    	  	
 //	      }
 	    }
+	    
+	    for ( int row = 25; row < 130; row++)
+	    {
+//	    		Color [][] redColors = new 
+	    }
+	    
   }
   
   /** Method that mirrors the picture around a 
