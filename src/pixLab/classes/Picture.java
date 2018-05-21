@@ -1,4 +1,4 @@
-package pixLab.classes;
+ package pixLab.classes;
 import java.awt.*;
 import java.awt.font.*;
 import java.awt.geom.*;
@@ -88,8 +88,22 @@ public class Picture extends SimplePicture
   
   public void classFilter()
   {
-//	  @Override addMessage();
-//	 @Overload addMessage(String message, int xPos, int yPos)
+	    Pixel[][] pixels = this.getPixels2D();
+	    Pixel leftPixel = null;
+	    Pixel rightPixel = null;
+	    int width = 600;
+	    for (int row = 0; row < pixels.length; row++)
+	    {
+	      for (int col = 100; col < width / 2; col++)
+	      {
+	        leftPixel = pixels[row][col];
+	        rightPixel = pixels[row][width - 1 - col];
+	        rightPixel.setColor(leftPixel.getColor());
+	      }
+	    }
+	    
+	    addMessage("AM Class", 200, 200 );
+
   }
   
   /** Method to set the blue to 0 */
@@ -108,10 +122,6 @@ public class Picture extends SimplePicture
   public void glitchFilter()
   {
 	  Pixel[][] pixels = this.getPixels2D();
-//	  Pixel[][] shiftedPixels = this.getPixels2D();
-//	  Pixel leftPixel = null;
-//	  Pixel rightPixel = null;
-//	  Pixel midPixel = null;
 	  int width = pixels[0].length;
 	  int shift = (int)(pixels[0].length * .33);
 	  
@@ -127,28 +137,43 @@ public class Picture extends SimplePicture
 	    		{
 	    			pixels[row][col].setColor(currentColors[(col+ shift) % width]);
 	    		}
-//	      for (int col = 0; col < pixels[0].length; col++)
-//	      {
-////	    	  	pixels[row][col] = shiftedPixels[row][width-(shift-col)];
-//	    	  	leftPixel = pixels[row][col];
-//	    	  	rightPixel = pixels [row][(width - shift + col) % width];
-//	    	  	midPixel = pixels [row][(col + shift) % width];
-//	    	  	
-//	    	  	Color leftColor = leftPixel.getColor();
-//	    	  	Color rightColor = rightPixel.getColor();
-//	    	  	Color midColor = midPixel.getColor();
-//	    	  	
-//	    	  	leftPixel.setColor(rightColor);
-//	    	  	rightPixel.setColor(midColor);
-//	    	  	midPixel.setColor(leftColor);
-//	    	  	
-//	      }
 	    }
 	    
-	    for ( int row = 25; row < 130; row++)
-	    {
-//	    		Color [][] redColors = new 
-	    }
+	    int red = 0;
+		int blue = 0;
+		for (int row = 25; row < 130; row++)
+		{
+			for (int col = 35; col < 190; col++)
+			{
+				red = pixels[row][col].getRed();
+				blue = pixels[row][col].getBlue();
+				pixels[row + 50][col + 50].setColor(new Color(red, 0, blue));
+			}
+		}
+	  
+		int green = 0;
+		for (int row = 200 ; row < 240; row++)
+		{
+			for (int col = 250; col < 300; col ++)
+			{
+				red = (int) (Math.random() * 255);
+				blue = (int) (Math.random() * 255);
+				green = (int) (Math.random() * 255);
+				pixels[row][col].setColor(new Color(red, green, blue));
+			}
+		}
+		for (int row = 250 ; row < 290; row++)
+		{
+			for (int col = 100; col < 150; col ++)
+			{
+				red = (int) (Math.random() * 255);
+				blue = (int) (Math.random() * 255);
+				green = (int) (Math.random() * 255);
+				pixels[row][col].setColor(new Color(red, green, blue));
+			}
+		}
+
+
 	    
   }
   
