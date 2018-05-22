@@ -5,7 +5,9 @@ import java.awt.geom.*;
 import java.awt.image.BufferedImage;
 import java.text.*;
 import java.util.*;
+import javax.swing.JColorChooser;
 import java.util.List; // resolves problem with java.awt.List and java.util.List
+import pixLab.images.*;
 
 /**
  * A class that represents a picture.  This class inherits from 
@@ -102,7 +104,35 @@ public class Picture extends SimplePicture
 	      }
 	    }
 	    
-	    addMessage("AM Class", 200, 200 );
+	    addMessage("AM Class", 400, 400 );
+	    
+
+  }
+  
+  public void bobRoss(int startRow, int startCol)
+  {
+	  Picture Bob = new Picture("BobRoss.png");
+	    Pixel[][] toPixels = this.getPixels2D();
+	    Pixel[][] fromPixels = Bob.getPixels2D();
+	    Pixel fromPixel = null;
+	    Pixel toPixel = null;
+	    
+	    int fromRow = 0;
+	    for(int toRow = startRow; fromRow < fromPixels.length && toRow < toPixels.length; toRow++)
+	    {
+	    		int fromCol = 0;
+	    		for(int toCol = startCol;  fromCol < fromPixels[0].length && toCol < toPixels[0].length; toCol++)
+	    			{
+	    				fromPixel = fromPixels[fromRow][fromCol];
+	    				toPixel = toPixels[toRow][toCol];
+	    				if(!fromPixel.isTransparent())
+	    				{
+	    					toPixel.setColor(fromPixel.getColor());
+	    				}
+	    				fromCol++;
+	    			}
+	    		fromRow++;
+	    }
 
   }
   

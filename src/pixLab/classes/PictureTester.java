@@ -17,7 +17,9 @@ public static void testClassFilter()
 	beach.explore();
 	beach.classFilter();
 	beach.explore();
-	beach.write("SeanKuoClassFilter.jpg");
+	beach.bobRoss(0,0);
+	beach.explore();
+    beach.write("SeanKuoClassFilter.jpg");
 }
 	
   public static void testZeroBlue()
